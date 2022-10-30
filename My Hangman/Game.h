@@ -12,6 +12,18 @@
 
 using namespace std;
 
+enum MyEnum
+{
+	BLACK = 0,
+	BLUE = 1,
+	GREEN = 2,
+	AQUA = 3,
+	RED = 4,
+	PURPLE = 5,
+	YELLOW = 6,
+	WHITE = 7,
+};
+
 class Game
 {
 private:
@@ -34,6 +46,11 @@ public:
 
 
 void PrintHangMan(int iLives);
+
+
+
+void PrintHangMan(int iLives, int iColor);
+
 char Intro();
 set<char> FillAlphabet(set<char> sAlphabet);
 void PrintAplhabet(set<char> sAlphabet, set<char> sCorretGuess);
@@ -42,9 +59,17 @@ bool CheckDuplicateLetter(set<char> sListOfLetters, char cletter);
 bool IsGuessCorrect(vector<char> vGuess, string word);
 void PrintWord(string sWord, vector<char> vPLayerGuss);
 void PrintGameState(int iLives, string sWord, vector<char> vPLayerGuss);
-void PrintGameOverScreen(int iLives);
+
+void PrintGameOverScreen(int iLives, string sWord);
 void PrintWinScreen(int iLives, string sWord);
 bool CheckIfPlayerHasWon(string sWord, set <char> sCorrectGuesses);
 
 void ChangeTextColour(int iColorValue);
 void ChangeConsoleWindowSize(int iXValue, int iYvalue);
+
+void PrintGameOverScreen(int iLives, string sWord);
+void PrintWinScreen(int iLives, string sWord);
+bool CheckIfPlayerHasWon(string sWord, set <char> sCorrectGuesses);
+void ChangeTextColour(int iColorValue);
+void ChangeConsoleWindowSize(int iXValue, int iYvalue);
+
