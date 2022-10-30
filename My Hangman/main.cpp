@@ -8,87 +8,90 @@
 #include <Windows.h>
 #include <ctime>
 
+using namespace std;
+
+
 void PrintHangMan(int iLives)
 {
 
 	if (iLives == 7)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t     |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 6)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 5)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 4)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 3)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t |\\  |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t |\\  |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 2)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t/|\\  |\n";
-		std::cout << "\t\t     | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t/|\\  |\n";
+		cout << "\t\t     | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else if (iLives == 1)
 	{
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t/|\\  |\n";
-		std::cout << "\t\t  \\  | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t/|\\  |\n";
+		cout << "\t\t  \\  | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 	}
 	else {
-		std::cout << "\t\t +---+\n";
-		std::cout << "\t\t |   |\n";
-		std::cout << "\t\t O   | \n";
-		std::cout << "\t\t/|\\  |\n";
-		std::cout << "\t\t/ \\  | \n";
-		std::cout << "\t\t     |\n";
-		std::cout << "\t\t=========\n";
+		cout << "\t\t +---+\n";
+		cout << "\t\t |   |\n";
+		cout << "\t\t O   | \n";
+		cout << "\t\t/|\\  |\n";
+		cout << "\t\t/ \\  | \n";
+		cout << "\t\t     |\n";
+		cout << "\t\t=========\n";
 
 	}
 }
@@ -122,12 +125,12 @@ char Intro()
 	// printing the intro mesage to the screen
 	ChangeConsoleWindowSize(550, 150);
 	ChangeTextColour(2);
-	std::cout << "==================================================";
+	cout << "==================================================";
 	ChangeTextColour(7);
-	std::cout << "\n\n	   Hello and Welcome to Hangman" << "\n";
-	std::cout << "	   Pres any key to continue..." << "\n\n";
+	cout << "\n\n	   Hello and Welcome to Hangman" << "\n";
+	cout << "	   Pres any key to continue..." << "\n\n";
 	ChangeTextColour(2);
-	std::cout << "==================================================";
+	cout << "==================================================";
 
 	_getch();
 	system("cls");
@@ -135,26 +138,26 @@ char Intro()
 	//top banner 
 	ChangeConsoleWindowSize(350, 200);
 	ChangeTextColour(2);
-	std::cout << "=========";
+	cout << "=========";
 	ChangeTextColour(7);
-	std::cout << "<<<HANGMAN>>>";
+	cout << "<<<HANGMAN>>>";
 	ChangeTextColour(2);
-	std::cout << "========\n";
+	cout << "========\n";
 	ChangeTextColour(7);
 
 	//menu text
-	std::cout << "\nPlease select your dificulty" << "\n";
-	std::cout << "	1) Easy" << "\n";
-	std::cout << "	2) Medium" << "\n";
-	std::cout << "	3) Hard" "\n\n";
+	cout << "\nPlease select your dificulty" << "\n";
+	cout << "	1) Easy" << "\n";
+	cout << "	2) Medium" << "\n";
+	cout << "	3) Hard" "\n\n";
 
 	//bottom banner 
 	ChangeTextColour(2);
-	std::cout << "=========";
+	cout << "=========";
 	ChangeTextColour(7);
-	std::cout << "<<<HANGMAN>>>";
+	cout << "<<<HANGMAN>>>";
 	ChangeTextColour(2);
-	std::cout << "========\n";
+	cout << "========\n";
 	ChangeTextColour(7);
 
 	// getting the dificuly the play has selected 
@@ -168,7 +171,7 @@ char Intro()
 	return cDificulty;
 
 }
-std::set<char> FillAlphabet(std::set<char> sAlphabet)
+set<char> FillAlphabet(set<char> sAlphabet)
 {
 	//adding letters to alpha 
 	for (int i = 97; i <= 122; i++)
@@ -179,37 +182,37 @@ std::set<char> FillAlphabet(std::set<char> sAlphabet)
 
 	return sAlphabet;
 }
-void PrintAplhabet(std::set<char> sAlphabet, std::set<char> sCorretGuess)
+void PrintAplhabet(set<char> sAlphabet, set<char> sCorretGuess)
 {
 
 	char cLetter;
 
-	std::cout << "   ";
+	cout << "   ";
 	for (int i = 97; i <= 122; i++)
 	{
 		cLetter = i;
 
-		std::cout << " ";
+		cout << " ";
 		if (sAlphabet.find(cLetter) != sAlphabet.end())
 		{
-			std::cout << cLetter;
+			cout << cLetter;
 		}
 		else if (sCorretGuess.find(cLetter) != sCorretGuess.end())
 		{
 			ChangeTextColour(3);
-			std::cout << cLetter;
+			cout << cLetter;
 			ChangeTextColour(7);
 		}
 		else
 		{
 			ChangeTextColour(4);
-			std::cout << cLetter;
+			cout << cLetter;
 			ChangeTextColour(7);
 		}
 
 		if (i == 111)
 		{
-			std::cout << "\n       ";
+			cout << "\n       ";
 		}
 	}
 }
@@ -229,7 +232,7 @@ char GetLetter()
 
 	return cLetter;
 }
-bool CheckDuplicateLetter(std::set<char> sListOfLetters, char cletter)
+bool CheckDuplicateLetter(set<char> sListOfLetters, char cletter)
 {
 	// if the letter is in the <set>list it means the user has not picked that letter 
 	if (sListOfLetters.find(cletter) != sListOfLetters.end())
@@ -241,7 +244,7 @@ bool CheckDuplicateLetter(std::set<char> sListOfLetters, char cletter)
 		return true;
 	}
 }
-bool IsGuessCorrect(std::vector<char> vGuess, std::string word)
+bool IsGuessCorrect(vector<char> vGuess, string word)
 {
 	bool bLetterInWord = false;
 	for (int i = 0; i < word.length(); i++)
@@ -261,60 +264,60 @@ bool IsGuessCorrect(std::vector<char> vGuess, std::string word)
 		return false;
 	}
 }
-void PrintWord(std::string sWord, std::vector<char> vPLayerGuss)
+void PrintWord(string sWord, vector<char> vPLayerGuss)
 {
 
 	//this will print out letters or '_'
 	for (int i = 0; i < sWord.length(); i++)
 	{
 		// if the user has guessed a letter and it is in the Vetor loop will print out the letter
-		if (std::count(vPLayerGuss.begin(), vPLayerGuss.end(), sWord[i]))
+		if (count(vPLayerGuss.begin(), vPLayerGuss.end(), sWord[i]))
 		{
-			std::cout << sWord[i];
+			cout << sWord[i];
 		}
 		// if the user has not guessed that letter loop will print out a '_'
 		else
 		{
-			std::cout << "_";
+			cout << "_";
 		}
 	}
 }
-void PrintGameState(int iLives, std::string sWord, std::vector<char> vPLayerGuss)
+void PrintGameState(int iLives, string sWord, vector<char> vPLayerGuss)
 {
 	system("cls");
 
 	//top banner 
 	ChangeConsoleWindowSize(410, 300);
 	ChangeTextColour(2);
-	std::cout << "============";
+	cout << "============";
 	ChangeTextColour(7);
-	std::cout << "<<<HANGMAN>>>";
+	cout << "<<<HANGMAN>>>";
 	ChangeTextColour(2);
-	std::cout << "============\n";
+	cout << "============\n";
 	ChangeTextColour(7);
 
 	PrintHangMan(iLives);
 
 	//guess banner 
 	ChangeTextColour(2);
-	std::cout << "=============";
+	cout << "=============";
 	ChangeTextColour(7);
-	std::cout << "<<<Guess>>>";
+	cout << "<<<Guess>>>";
 	ChangeTextColour(2);
-	std::cout << "============\n";
+	cout << "============\n";
 	ChangeTextColour(7);
 
-	std::cout << "\t\t";
+	cout << "\t\t";
 	PrintWord(sWord, vPLayerGuss);
-	std::cout << "\n";
+	cout << "\n";
 
 	//guess banner 
 	ChangeTextColour(2);
-	std::cout << "=============";
+	cout << "=============";
 	ChangeTextColour(7);
-	std::cout << "<<<Guess>>>";
+	cout << "<<<Guess>>>";
 	ChangeTextColour(2);
-	std::cout << "============\n";
+	cout << "============\n";
 	ChangeTextColour(7);
 
 
@@ -328,11 +331,11 @@ void PrintGameOverScreen(int iLives)
 
 	//top banner 
 	ChangeTextColour(2);
-	std::cout << "=============";
+	cout << "=============";
 	ChangeTextColour(7);
-	std::cout << "<<<GAMEOVER>>>";
+	cout << "<<<GAMEOVER>>>";
 	ChangeTextColour(2);
-	std::cout << "==========\n";
+	cout << "==========\n";
 	ChangeTextColour(7);
 
 	ChangeTextColour(4);
@@ -341,44 +344,44 @@ void PrintGameOverScreen(int iLives)
 
 	//guess banner 
 	ChangeTextColour(2);
-	std::cout << "==========";
+	cout << "==========";
 	ChangeTextColour(7);
-	std::cout << "<<<Press Any Key>>>";
+	cout << "<<<Press Any Key>>>";
 	ChangeTextColour(2);
-	std::cout << "========";
+	cout << "========";
 	ChangeTextColour(7);
 	_getch();
 }
-void PrintWinScreen(int iLives, std::string sWord)
+void PrintWinScreen(int iLives, string sWord)
 {
 	system("cls");
-	ChangeConsoleWindowSize(410, 300);
+	ChangeConsoleWindowSize(410, 250);
 
 	//top banner 
 	ChangeTextColour(2);
-	std::cout << "=============";
+	cout << "=============";
 	ChangeTextColour(7);
-	std::cout << "<<<YOU WIN>>>";
+	cout << "<<<YOU WIN>>>";
 	ChangeTextColour(2);
-	std::cout << "==========\n";
+	cout << "==========\n";
 	ChangeTextColour(7);
 
 	ChangeTextColour(3);
 	PrintHangMan(iLives);
-	std::cout << "\n\t\t" << sWord << "\n";
+	cout << "\n\t\t" << sWord << "\n";
 	ChangeTextColour(7);
 
 	//guess banner 
 	ChangeTextColour(2);
-	std::cout << "==========";
+	cout << "==========";
 	ChangeTextColour(7);
-	std::cout << "<<<Press Any Key>>>";
+	cout << "<<<Press Any Key>>>";
 	ChangeTextColour(2);
-	std::cout << "========";
+	cout << "========";
 	ChangeTextColour(7);
 	_getch();
 }
-bool CheckIfPlayerHasWon(std::string sWord, std::set <char> sCorrectGuesses)
+bool CheckIfPlayerHasWon(string sWord, set <char> sCorrectGuesses)
 {
 
 	// if all of the letter cant be found in the set player has not won 
@@ -397,23 +400,22 @@ bool CheckIfPlayerHasWon(std::string sWord, std::set <char> sCorrectGuesses)
 int main()
 {
 	//collection used 
-	std::vector<char> vGuessedLetters;
-	std::set<char> sCorrectGuess;
-	std::set<char> sRemainingLetters;
+	vector<char> vGuessedLetters;
+	set<char> sCorrectGuess;
+	set<char> sRemainingLetters;
 
-	std::string asEasyWords[3]{ "dog", "log", "car" };
-	std::string asMediumWords[3]{ "animal", "window", "purple" };
-	std::string asHardWords[3]{ "razzberry", "blackjack", "jukebox" };
+	string asEasyWords[3]{ "dog", "log", "car" };
+	string asMediumWords[3]{ "animal", "window", "purple" };
+	string asHardWords[3]{ "razzberry", "blackjack", "jukebox" };
 
 
 
 	//testing word 
-	std::string HiddenWord;
+	string HiddenWord;
 
 	// set up variables 
 	int iLives = 7;
 	bool bHasPlayerWon = false;
-
 
 
 
@@ -444,7 +446,7 @@ int main()
 		do
 		{
 			PrintGameState(iLives, HiddenWord, vGuessedLetters);
-			std::cout << "\n\n";
+			cout << "\n\n";
 			PrintAplhabet(sRemainingLetters, sCorrectGuess);
 			// getting letter from user and removing it form Remaining Letters
 			bool bDuplicateLetter;
