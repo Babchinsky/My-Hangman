@@ -27,16 +27,16 @@ enum MyEnum
 class Game
 {
 private:
-	vector<char> vGuessedLetters;
-	set<char> sCorrectGuess;
-	set<char> sRemainingLetters;
+	vector<char> guessed_letters;
+	set<char> correct_guess;
+	set<char> remaining_letters;
 
 	//testing word 
-	string HiddenWord;
+	string hidden_word;
 
 	// set up variables 
-	int iLives = 7;
-	bool bHasPlayerWon = false;
+	int lives = 7;
+	bool has_player_won = false;
 public:
 	Game()
 	{
@@ -45,31 +45,31 @@ public:
 };
 
 
-void PrintHangMan(int iLives);
+void PrintHangMan(int lives);
 
 
 
-void PrintHangMan(int iLives, int iColor);
+void PrintHangMan(int lives, int color);
 
 char Intro();
-set<char> FillAlphabet(set<char> sAlphabet);
-void PrintAplhabet(set<char> sAlphabet, set<char> sCorretGuess);
+set<char> FillAlphabet(set<char> alphabet);
+void PrintAplhabet(set<char> alphabet, set<char> correct_guess);
 char GetLetter();
 bool CheckDuplicateLetter(set<char> sListOfLetters, char cletter);
-bool IsGuessCorrect(vector<char> vGuess, string word);
-void PrintWord(string sWord, vector<char> vPLayerGuss);
-void PrintGameState(int iLives, string sWord, vector<char> vPLayerGuss);
+bool IsGuessCorrect(vector<char> guess, string word);
+void PrintWord(string word, vector<char> player_guess);
+void PrintGameState(int lives, string word, vector<char> player_guess);
 
-void PrintGameOverScreen(int iLives, string sWord);
-void PrintWinScreen(int iLives, string sWord);
-bool CheckIfPlayerHasWon(string sWord, set <char> sCorrectGuesses);
+void PrintGameOverScreen(int lives, string word);
+void PrintWinScreen(int lives, string word);
+bool CheckIfPlayerHasWon(string word, set <char> correct_guesses);
 
-void ChangeTextColour(int iColorValue);
-void ChangeConsoleWindowSize(int iXValue, int iYvalue);
+void ChangeTextColour(int color_value);
+void ChangeConsoleWindowSize(int x_value, int y_value);
 
-void PrintGameOverScreen(int iLives, string sWord);
-void PrintWinScreen(int iLives, string sWord);
-bool CheckIfPlayerHasWon(string sWord, set <char> sCorrectGuesses);
-void ChangeTextColour(int iColorValue);
-void ChangeConsoleWindowSize(int iXValue, int iYvalue);
+void PrintGameOverScreen(int lives, string word);
+void PrintWinScreen(int lives, string word);
+bool CheckIfPlayerHasWon(string word, set <char> correct_guesses);
+void ChangeTextColour(int color_value);
+void ChangeConsoleWindowSize(int x_value, int y_value);
 
