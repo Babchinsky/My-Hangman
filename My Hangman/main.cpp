@@ -1,15 +1,4 @@
-#include<iostream>
-#include<vector>
-#include <set>
-#include <conio.h>
-#include <string>
-#include <ctype.h>
-#include <stdio.h>
-#include <Windows.h>
-#include <ctime>
-
-using namespace std;
-
+#include "Game.h"
 
 void PrintHangMan(int iLives)
 {
@@ -327,7 +316,7 @@ void PrintGameState(int iLives, string sWord, vector<char> vPLayerGuss)
 void PrintGameOverScreen(int iLives)
 {
 	system("cls");
-	ChangeConsoleWindowSize(300, 300);
+	ChangeConsoleWindowSize(410, 250);
 
 	//top banner 
 	ChangeTextColour(2);
@@ -404,11 +393,10 @@ int main()
 	set<char> sCorrectGuess;
 	set<char> sRemainingLetters;
 
-	string asEasyWords[3]{ "dog", "log", "car" };
-	string asMediumWords[3]{ "animal", "window", "purple" };
-	string asHardWords[3]{ "razzberry", "blackjack", "jukebox" };
-
-
+	ifstream readFile("words.dat"); // opening text file
+	string level, word;             // readed data
+	string selected_level;
+	unsigned int words_number = 0;
 
 	//testing word 
 	string HiddenWord;
@@ -424,7 +412,6 @@ int main()
 	{
 		// getting a random number between one and 3 to paick a word
 		srand(time(NULL));
-		int iRandomNumber = rand() % 3;
 
 		char cDifficulty = Intro();
 		sRemainingLetters = FillAlphabet(sRemainingLetters);
@@ -433,15 +420,44 @@ int main()
 		switch (cDifficulty)
 		{
 		case '1':
-			HiddenWord = asEasyWords[iRandomNumber];
+			selected_level = "easy";
 			break;
 		case '2':
-			HiddenWord = asMediumWords[iRandomNumber];
+			selected_level = "medium";
 			break;
 		case '3':
-			HiddenWord = asHardWords[iRandomNumber];
+			selected_level = "hard";
 			break;
 		}
+
+		
+		// count numbers of difficult words
+		while (readFile >> level >> word)
+			if (level == selected_level)
+				words_number++;
+		readFile.close();
+		
+				
+			
+
+		// create array with with correct size
+		string* words = new string[words_number];
+		
+		// add correct words to array
+		ifstream readFile("words.dat"); // opening text file
+		int i = 0;
+
+		while (readFile >> level >> word)
+			if (level == selected_level)
+				words[i++] = word;
+			
+		readFile.close();
+
+		int iRandomNumber = rand() % words_number;
+
+		HiddenWord = words[iRandomNumber];
+
+		cout << "Hidden: " << HiddenWord << endl;
 
 		do
 		{
@@ -492,7 +508,6 @@ int main()
 		sCorrectGuess.clear();
 		vGuessedLetters.clear();
 		iLives = 7;
-
-	} while (true);
-
+		delete[] words;
+	} while (true); 
 }
