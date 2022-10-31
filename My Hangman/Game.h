@@ -12,7 +12,7 @@
 
 using namespace std;
 
-enum MyEnum
+enum COLORS
 {
 	BLACK = 0,
 	BLUE = 1,
@@ -23,6 +23,14 @@ enum MyEnum
 	YELLOW = 6,
 	WHITE = 7,
 };
+enum DIFFICULTY
+{
+	EASY = '1',
+	MEDIUM = '2',
+	HARD = '3',
+};
+
+
 
 void PrintHangMan(int lives, int color);
 char Intro();
@@ -31,10 +39,10 @@ void PrintAplhabet(set<char> alphabet, set<char> correct_guess);
 char GetLetter();
 bool CheckDuplicateLetter(set<char> list_of_letters, char cletter);
 bool IsGuessCorrect(vector<char> guess, string word);
-void PrintWord(string word, vector<char> player_guess);
-void PrintGameState(int lives, string word, vector<char> player_guess);
-void PrintGameOverScreen(int lives, string word);
-void PrintWinScreen(int lives, string word);
+void PrintWord(string word, vector<char> player_guess, char difficulty);
+void PrintGameState(int lives, string word, vector<char> player_guess, char difficulty);
+void PrintGameOverScreen(int lives, string word , char difficulty);
+void PrintWinScreen(int lives, string word, char difficulty);
 bool CheckIfPlayerHasWon(string word, set <char> correct_guesses);
 
 void ChangeTextColor(int color_value);

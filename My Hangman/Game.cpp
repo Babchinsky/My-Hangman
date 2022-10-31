@@ -252,9 +252,21 @@ bool IsGuessCorrect(vector<char> guess, string word)
 		return false;
 	}
 }
-void PrintWord(string word, vector<char> player_guess)
+void PrintWord(string word, vector<char> player_guess, char difficulty)
 {
-	cout << "  ";
+	switch (difficulty)
+	{
+	case EASY:
+		cout << " ";
+		break;
+	case MEDIUM:
+		cout << "";
+		break;
+	case HARD:
+		cout << "\b\b";
+		break;
+	}
+	
 	//this will print out letters or '_'
 	for (int i = 0; i < word.length(); i++)
 	{
@@ -271,7 +283,7 @@ void PrintWord(string word, vector<char> player_guess)
 		}
 	}
 }
-void PrintGameState(int lives, string word, vector<char> player_guess)
+void PrintGameState(int lives, string word, vector<char> player_guess, char difficulty)
 {
 	system("cls");
 
@@ -297,7 +309,7 @@ void PrintGameState(int lives, string word, vector<char> player_guess)
 	ChangeTextColor(7);
 
 	cout << "\t\t";
-	PrintWord(word, player_guess);
+	PrintWord(word, player_guess, difficulty);
 	cout << "\n";
 
 	//guess banner 
@@ -309,7 +321,7 @@ void PrintGameState(int lives, string word, vector<char> player_guess)
 	cout << "============\n";
 	ChangeTextColor(7);
 }
-void PrintGameOverScreen(int lives, string word)
+void PrintGameOverScreen(int lives, string word, char difficulty)
 {
 	system("cls");
 	ChangeConsoleWindowSize(410, 250);
@@ -325,7 +337,18 @@ void PrintGameOverScreen(int lives, string word)
 
 	ChangeTextColor(4);
 	PrintHangMan(lives, RED);
-	cout << "\n\t\t  " << word << "\n";
+	switch (difficulty)
+	{
+	case '1':
+		cout << "\n\t\t  " << word << "\n";
+		break;
+	case '2':
+		cout << "\n\t\t" << word << "\n";
+		break;
+	case HARD:
+		cout << "\n\t\t" << word << "\n";
+		break;
+	}
 	ChangeTextColor(7);
 
 	//guess banner 
@@ -338,7 +361,7 @@ void PrintGameOverScreen(int lives, string word)
 	ChangeTextColor(7);
 	_getch();
 }
-void PrintWinScreen(int lives, string word)
+void PrintWinScreen(int lives, string word, char difficulty)
 {
 	system("cls");
 	ChangeConsoleWindowSize(410, 250);
@@ -354,7 +377,20 @@ void PrintWinScreen(int lives, string word)
 
 	ChangeTextColor(3);
 	PrintHangMan(lives, AQUA);
-	cout << "\n\t\t  " << word << "\n";
+
+	switch (difficulty)
+	{
+	case '1':
+		cout << "\n\t\t  " << word << "\n";
+		break;
+	case '2':
+		cout << "\n\t\t" << word << "\n";
+		break;
+	case HARD:
+		cout << "\n\t\t" << word << "\n";
+		break;
+	}
+	
 	ChangeTextColor(7);
 
 	//guess banner 
