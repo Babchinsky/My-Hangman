@@ -9,6 +9,7 @@ Hangman::Hangman()
 
 void Hangman::GameLoop()
 {
+	time_t start_seconds;
 	ifstream readFile("words.dat"); // opening text file
 	//Game Loop
 	do
@@ -65,8 +66,8 @@ void Hangman::GameLoop()
 
 		hidden_word = words[iRandomNumber];
 
-		cout << "Hidden: " << hidden_word << endl;
 
+		start_seconds = time(NULL);
 		do
 		{
 			PrintGameState(lives, hidden_word, guessed_letters, difficulty);
@@ -99,16 +100,15 @@ void Hangman::GameLoop()
 			//cheking if player has won the game
 			has_player_won = CheckIfPlayerHasWon(hidden_word, correct_guess);
 
-
 		} while (lives > 0 && !has_player_won);
 
 		if (has_player_won)
 		{
-			PrintWinScreen(lives, hidden_word, difficulty);
+			PrintWinScreen(lives, hidden_word, difficulty, start_seconds);
 		}
 		else
 		{
-			PrintGameOverScreen(lives, hidden_word, difficulty);
+			PrintGameOverScreen(lives, hidden_word, difficulty, start_seconds);
 		}
 
 		//resteting for next game

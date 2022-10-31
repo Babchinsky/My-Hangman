@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <Windows.h>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 
@@ -31,8 +32,7 @@ enum DIFFICULTY
 };
 
 
-
-void PrintHangMan(int lives, int color);
+void PrintHangMan(int lives, int color, time_t min);
 char Intro();
 set<char> FillAlphabet(set<char> alphabet);
 void PrintAplhabet(set<char> alphabet, set<char> correct_guess);
@@ -41,8 +41,11 @@ bool CheckDuplicateLetter(set<char> list_of_letters, char cletter);
 bool IsGuessCorrect(vector<char> guess, string word);
 void PrintWord(string word, vector<char> player_guess, char difficulty);
 void PrintGameState(int lives, string word, vector<char> player_guess, char difficulty);
-void PrintGameOverScreen(int lives, string word , char difficulty);
-void PrintWinScreen(int lives, string word, char difficulty);
+
+void PrintGameOverScreen(int lives, string word , char difficulty, time_t start_seconds);
+void PrintWinScreen(int lives, string word, char difficulty, time_t start_seconds);
+
+
 bool CheckIfPlayerHasWon(string word, set <char> correct_guesses);
 
 void ChangeTextColor(int color_value);

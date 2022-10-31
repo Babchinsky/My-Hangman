@@ -1,5 +1,6 @@
 #include "Game.h"
 
+
 void PrintHangMan(int lives, int color)
 {
 	if (lives == 7)
@@ -116,7 +117,7 @@ char Intro()
 	cout << "==================================================";
 	ChangeTextColor(7);
 	cout << "\n\n	   Hello and Welcome to Hangman" << "\n";
-	cout << "	   Pres any key to continue..." << "\n\n";
+	cout << "	   Press any key to continue..." << "\n\n";
 	ChangeTextColor(2);
 	cout << "==================================================";
 
@@ -134,7 +135,7 @@ char Intro()
 	ChangeTextColor(7);
 
 	//menu text
-	cout << "\nPlease select your dificulty" << "\n";
+	cout << "\n\t\b\b\bPlease select difficulty" << "\n";
 	cout << "	1) Easy" << "\n";
 	cout << "	2) Medium" << "\n";
 	cout << "	3) Hard" "\n\n";
@@ -321,28 +322,40 @@ void PrintGameState(int lives, string word, vector<char> player_guess, char diff
 	cout << "============\n";
 	ChangeTextColor(7);
 }
-void PrintGameOverScreen(int lives, string word, char difficulty)
+
+
+void PrintGameOverScreen(int lives, string word, char difficulty, time_t start_seconds)
 {
 	system("cls");
 	ChangeConsoleWindowSize(410, 250);
 
+	time_t end_seconds = time(NULL);
+	time_t dif_seconds = end_seconds - start_seconds;
+
+
+	time_t seconds = dif_seconds;
+	time_t minutes;
+
+	minutes = seconds / 60;
+	seconds = seconds % 60;
+
 	//top banner 
 	ChangeTextColor(2);
-	cout << "=============";
+	cout << "=======";
 	ChangeTextColor(7);
-	cout << "<<<GAMEOVER>>>";
+	cout << "<<<GAMEOVER FOR " << setw(2) << setfill('0') << minutes << ":" << setw(2) << setfill('0') << seconds << ">>>";
 	ChangeTextColor(2);
-	cout << "==========\n";
+	cout << "======\n";
 	ChangeTextColor(7);
 
 	ChangeTextColor(4);
 	PrintHangMan(lives, RED);
 	switch (difficulty)
 	{
-	case '1':
+	case EASY:
 		cout << "\n\t\t  " << word << "\n";
 		break;
-	case '2':
+	case MEDIUM:
 		cout << "\n\t\t" << word << "\n";
 		break;
 	case HARD:
@@ -359,20 +372,32 @@ void PrintGameOverScreen(int lives, string word, char difficulty)
 	ChangeTextColor(2);
 	cout << "========";
 	ChangeTextColor(7);
+
 	_getch();
 }
-void PrintWinScreen(int lives, string word, char difficulty)
+void PrintWinScreen(int lives, string word, char difficulty, time_t start_seconds)
 {
 	system("cls");
 	ChangeConsoleWindowSize(410, 250);
 
+	time_t end_seconds = time(NULL);
+	time_t dif_seconds = end_seconds - start_seconds;
+	
+
+	time_t seconds = dif_seconds;
+	time_t minutes;
+
+	minutes = seconds / 60;
+	seconds = seconds % 60;
+
+
 	//top banner 
 	ChangeTextColor(2);
-	cout << "=============";
+	cout << "=======";
 	ChangeTextColor(7);
-	cout << "<<<YOU WIN>>>";
+	cout << "<<<YOU WIN FOR "  << setw(2) << setfill('0') << minutes << ":" << setw(2) << setfill('0') << seconds << ">>>";
 	ChangeTextColor(2);
-	cout << "==========\n";
+	cout << "=======\n";
 	ChangeTextColor(7);
 
 	ChangeTextColor(3);
@@ -401,8 +426,13 @@ void PrintWinScreen(int lives, string word, char difficulty)
 	ChangeTextColor(2);
 	cout << "========";
 	ChangeTextColor(7);
+
+
+
 	_getch();
 }
+
+
 bool CheckIfPlayerHasWon(string word, set <char> correct_guesses)
 {
 
